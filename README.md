@@ -63,8 +63,8 @@
 		* `@GeneratedValue`
 		* `Column(name = "VOTE_ID")`
 
-* `Vote` has a `option` instance variable of type `Option`
-	* `option` should be `annotated` with
+* `Vote` has a `options` instance variable of type `Option`
+	* `options` should be `annotated` with
 		* `@ManyToOne`
 		* `@JoinColumn(name = "OPTION_ID")`
 
@@ -227,7 +227,7 @@ public ResponseEntity<?> deletePoll(@PathVariable Long pollId) {
 
 * Restart the QuickPoll application.
 * Use Postman to execute a `POST` to `http://localhost:8080/polls/` whose request body is the `JSON` object below.
-* You can modify the request body in Postman by navigating to the `Body` tab, selecting the `raw` radio button, and selecting the `JSON` option from the text format dropdown.
+* You can modify the request body in Postman by navigating to the `Body` tab, selecting the `raw` radio button, and selecting the `JSON` options from the text format dropdown.
 
 ```JSON
 {
@@ -302,12 +302,12 @@ public class VoteController {
 
 ### Part 3.2.1 - Testing `VoteController`
 
-* To test the voting capabilities, `POST` a new Vote to the `/polls/1/votes` endpoint with the option object expressed in `JSON` below.
+* To test the voting capabilities, `POST` a new Vote to the `/polls/1/votes` endpoint with the options object expressed in `JSON` below.
 * On successful request execution, you will see a Location response header with value http://localhost:8080/polls/1/votes/1.
 
 ```JSON
 {
-    "option": { "id": 1, "value": "Black Mirror" }
+    "options": { "id": 1, "value": "Black Mirror" }
 }
 ```
 
@@ -363,7 +363,7 @@ public Iterable<Vote> getVote(@PathVariable Long pollId) {
 
 ## Part 4.1 - Create class `OptionCount`
 
-* The `OptionCount` DTO contains the `ID` of the option and a count of votes casted for that option.
+* The `OptionCount` DTO contains the `ID` of the options and a count of votes casted for that options.
 
 ```java
 public class OptionCount {
@@ -626,7 +626,7 @@ Size.poll.options=Options must be greater than {2} and less than {1}
 ## Part 6.1 - Load Dummy Poll Data
 
 * Create a `src/main/resource/import.sql` file with _DML statements_ for populating the database upon bootstrap. The `import.sql` should insert at least 15 polls, each with 3 or more options.
-	* Below is an example of `SQL` statements for creating a single poll with only one option.
+	* Below is an example of `SQL` statements for creating a single poll with only one options.
 	
 		* Poll Creation
 		
@@ -636,7 +636,7 @@ Size.poll.options=Options must be greater than {2} and less than {1}
 		* Option Creation
 	
 			```sql
-			insert into option (option_id, option_value, poll_id) values (1, 'Red', 1);
+			insert into options (option_id, option_value, poll_id) values (1, 'Red', 1);
 			``` 
 	
 * Restart your application.

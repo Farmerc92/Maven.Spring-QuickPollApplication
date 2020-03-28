@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Option {
+public class Options {
     @Id
     @GeneratedValue
     @Column(name = "OPTION_ID")
