@@ -358,7 +358,7 @@ public Iterable<Vote> getVote(@PathVariable Long pollId) {
 
 * The final piece remaining for us is the implementation of the ComputeResult resource.
 * Because we don’t have any domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
-* Create a sub package of `java` named `dtos`
+* Create a sub package of `java` named `io.zipcoder.tc_spring_poll_application.dto`
 
 
 ## Part 4.1 - Create class `OptionCount`
